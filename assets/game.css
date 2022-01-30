@@ -1,0 +1,42 @@
+body {
+    color: white;
+}
+
+.choice-container {
+    display: flex;
+    margin-bottom: 3%;
+    border-radius: 3px;
+    width: 60%;
+    min-width: 40%;
+    background-color: #4CAF50;
+    font-size: 15px;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 5px 2.5px 2.5px rgb(14, 219, 82);
+}
+
+.choice-prefix {
+    padding: 0px 5px;
+    color: white;
+}
+
+.choice-text {
+    width: 100%;
+}
+
+.hud-main-text {
+    text-align: center;
+}
+
+
+#hud {
+    display: flex;
+    justify-content: space-between;
+}
+
+#hud-prefix {
+    text-align: center;
+    font-size: 10px;
+}
