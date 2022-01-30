@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The End!</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div id ="end" class="flex-center flex-column">
+            <h1 id="finalScore">test</h1>
+            <form class="end-form">
+                <h2>Enter your initials to save your score!</h2>
+                <input type="text" id="name" name="name" placeholder="POG">
+                <button class ="btn" id="scoreBtn" type="submit" onclick="saveScore(event)">Save</button>
+            </form>
+            <a href="/game.html" class="btn">Replay</a>
+            <a href="/scores.html" class="btn">Check Scores(Save First)</a>
+        </div>
+    </div>
+<script src="./assets/js/end.js"></script>
+</body>
+</html>
