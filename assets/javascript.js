@@ -2,12 +2,14 @@ const question = document.querySelector("#question");
 const choices = Array.from(document.querySelectorAll(".choice-text"));
 const progressText = document.querySelector("#progressText");
 const scoreText = document.querySelector("#score");
+const timer = document.querySelector("#timer")
 
 let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = []
+let timeLeft = 60;
 
 let questions = [
     {
@@ -60,12 +62,26 @@ startGame = () => {
     score = 0
     availableQuestions = [...questions]
     getNewQuestion()
+    countdown()
+}
+
+countdown = () => {
+   const timeInterval = setInterval(() => {
+        timeLeft--
+            timer.textContent = timeLeft + "seconds"
+        if(timeLeft <= 0) {
+            timer.textContent = '';
+            clearInterval(timeInterval);
+            endGame()
+        }
+    }, 1000);
 }
 
 getNewQuestion = () => {
-    if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS){
+    if(availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS){
         localStorage.setItem("recentScore", score)
-        return window.location.assign("/end.html")
+        // instead of linking to an end page going to reduce timer by 10 seconds
+        endGame()
     }
     // This is what keeps track of progress and increments it
     questionCounter++
@@ -84,6 +100,13 @@ getNewQuestion = () => {
     acceptingAnswers = true
 }
 
+endGame = () => {
+    timeLeft = 60
+    return window.location.assign("/end.html")
+
+}
+
+
 choices.forEach(choice => {
     choice.addEventListener("click", i => {
     if(!acceptingAnswers) return
@@ -94,6 +117,9 @@ choices.forEach(choice => {
 
     if(classToApply === "correct"){
         incrementScore(SCORE_POINTS)
+    } else {
+        // this is where i would subtract from timer
+        timeLeft -=5
     }
     selectedChoice.parentElement.classList.add(classToApply)
     setTimeout (() => {
@@ -109,3 +135,10 @@ incrementScore = num => {
 }
 
 startGame()
+
+
+
+
+
+
+// Need to add timer, need to reduce time from timer when question is answered wrong, need to have a form to enter initials and then save scores and display them.
