@@ -52,3 +52,8 @@ h1 {
     font-size: 16px;
     margin-bottom: 2%;
 }
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 5px 2.5px 2.5px rgb(14, 219, 82);
+}
