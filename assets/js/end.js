@@ -1,15 +1,15 @@
 const username = document.querySelector("#name");
 const scoreBtn = document.querySelector("#scoreBtn");
 const finalScore = document.querySelector("#finalScore");
-const recentScore = document.querySelector("#recentScore")
+const recentScore = JSON.parse(localStorage.getItem("recentScore"))
 
-const scores = json.parse(localStorage.getItem("scores")) || []
+const scores = JSON.parse(localStorage.getItem("scores")) || []
 
 const MAX_SCORES = 3
 
 finalScore.innerText = recentScore
 
-saveScore = i => {
+const saveScore = i => {
     i.preventDefault()
     const score = {
         score: recentScore,
@@ -17,9 +17,11 @@ saveScore = i => {
     }
     scores.push(score)
     scores.sort((a,b) => {
-        return b.score-a.score
+        return b.score - a.score
     })
     scores.splice(3)
     localStorage.setItem("scores", JSON.stringify(scores))
     window.location.assign("/")
 }
+
+scoreBtn.addEventListener("click", saveScore)
