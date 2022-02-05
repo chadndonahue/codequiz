@@ -35,5 +35,5 @@
   
   
   
-  ![Alt text](/codequiz/screenshot/edaae276bb1bab19d461f3c4441032ce.png?raw=true "Optional Title")
+  ![Alt text](/screenshot/edaae276bb1bab19d461f3c4441032ce.png?raw=true "Optional Title")
 
