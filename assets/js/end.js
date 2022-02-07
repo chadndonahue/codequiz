@@ -21,7 +21,7 @@ const saveScore = i => {
     })
     scores.splice(3)
     localStorage.setItem("scores", JSON.stringify(scores))
-    window.location.assign("/")
+    window.location.assign("./scores.html")
 }
 
 scoreBtn.addEventListener("click", saveScore)
